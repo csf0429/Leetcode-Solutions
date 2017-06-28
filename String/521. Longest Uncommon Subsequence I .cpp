@@ -2,34 +2,22 @@
 // Created by 蔡少凡 on 6/27/17.
 //
 
-
 #include <iostream>
 #include <string>
+#include <unordered_map>
 using namespace std;
-
 
 class Solution {
 public:
-    string countAndSay(int n){
-        if (n == 0) return "";
-        string res = "1";
-        while(--n) {
-            string cur = "";
-            for (int i = 0; i < res.size(); i++) {
-                int count = 1;
-                while ((i + 1 < res.size()) && (res[i] == res[i + 1])) {
-                    count++;
-                    i++;
-                }
-                cur += to_string(count) + res[i];
-            }
-            res = cur;
-        }
-        return res;
+    int findLUSlength(string a, string b) {
+        return a==b ? -1:max(a.length(),b.length());
     }
 };
 
 int main() {
-    cout << Solution().countAndSay(1) << endl;
+    string s1 = "leetocode";
+    string s2 = "leetcode123";
+
+    cout << Solution().findLUSlength(s1,s2)  << endl;
     return 0;
 }
